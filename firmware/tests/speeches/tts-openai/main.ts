@@ -1,7 +1,11 @@
+import config from 'mc/config'
 import { TTS, TTSProperty } from 'tts-openai'
 import Timer from 'timer'
 
-const token = 'YOUR_API_KEY_HERE'
+const token = config.token
+
+if (!token || token == 'YOUR_API_KEY_HERE') throw new Error('API token is missing.')
+
 const property: TTSProperty = {
   token,
   onPlayed: (num) => {
@@ -9,7 +13,7 @@ const property: TTSProperty = {
   },
   onDone: () => {
     trace('done\n')
-  }
+  },
 }
 
 const tts = new TTS(property)
