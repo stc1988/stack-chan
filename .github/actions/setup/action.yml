@@ -69,15 +69,15 @@ runs:
         key: ${{ env.moddable_cache_key }}
     - name: Output Build environment info to summary
       run: |
-        XS-DEV_DOCTOR_OUTPUT=$(npm run doctor)
+        XS_DEV_DOCTOR_OUTPUT=$(npm run doctor)
         echo "## xs-dev Environment Info" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
-        echo "$DEV_DOCTOR_OUTPUT" >> $GITHUB_STEP_SUMMARY
+        echo "$XS_DEV_DOCTOR_OUTPUT" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
-        ESP-IDF_VERSION_OUTPUT=$(idf.py --version)
+        ESP_IDF_VERSION_OUTPUT=$(idf.py --version)
         echo "## ESP-IDF Environment Info" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
-        echo "$ESP-IDF_VERSION_OUTPUT" >> $GITHUB_STEP_SUMMARY
+        echo "$ESP_IDF_VERSION_OUTPUT" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
       working-directory: ./firmware
       shell: bash
