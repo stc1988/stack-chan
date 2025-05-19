@@ -69,6 +69,7 @@ runs:
         key: ${{ env.moddable_cache_key }}
     - name: Output Build environment info to summary
       run: |
+        source $HOME/.local/share/xs-dev-export.sh
         XS_DEV_DOCTOR_OUTPUT=$(npm run doctor)
         echo "## xs-dev Environment Info" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
