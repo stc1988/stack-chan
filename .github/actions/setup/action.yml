@@ -69,9 +69,14 @@ runs:
         key: ${{ env.moddable_cache_key }}
     - name: Output Build environment info to summary
       run: |
-        OUTPUT=$(npx xs-dev doctor)
+        XS-DEV_DOCTOR_OUTPUT=$(npx xs-dev doctor)
         echo "## xs-dev Environment Info" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
-        echo "$OUTPUT" >> $GITHUB_STEP_SUMMARY
+        echo "$DEV_DOCTOR_OUTPUT" >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        ESP-IDF_VERSION_OUTPUT=$(idf.py --version)
+        echo "## ESP-IDF Environment Info" >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        echo "$ESP-IDF_VERSION_OUTPUT" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
       shell: bash
