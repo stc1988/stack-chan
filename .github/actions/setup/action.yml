@@ -75,7 +75,8 @@ runs:
         echo '```' >> $GITHUB_STEP_SUMMARY
         echo "$XS_DEV_DOCTOR_OUTPUT" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
-        source $HOME/.local/share/xs-dev-export.sh && env && ESP_IDF_VERSION_OUTPUT=$(idf.py --version)
+        cat $HOME/.local/share/xs-dev-export.sh
+        ESP_IDF_VERSION_OUTPUT=$(idf.py --version)
         echo "## ESP-IDF Environment Info" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
         echo "$ESP_IDF_VERSION_OUTPUT" >> $GITHUB_STEP_SUMMARY
