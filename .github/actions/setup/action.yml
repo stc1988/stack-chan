@@ -26,7 +26,7 @@ runs:
       run: |
         API_URL="https://api.github.com/repos/Moddable-OpenSource/moddable/releases/latest"
         RESPONSE=$(curl -s $API_URL)
-        LATEST_TAG_ID=$(echo $RESPONSE | grep "^  \"id\"" | grep -o '[0-9]\+' )
+        LATEST_TAG_ID=$(echo $RESPONSE | grep -E "^  \"id\"" | grep -o '[0-9]\+' )
         echo "Latest release tag_name of Moddable: $LATEST_TAG_NAME (id:$LATEST_TAG_ID)"
         echo "moddable_cache_key=${{ runner.os }}-moddable-$LATEST_TAG_ID" >> $GITHUB_ENV
       shell: bash
