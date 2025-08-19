@@ -43,6 +43,7 @@ runs:
       if: steps.restore-cache-moddable.outputs.cache-hit != 'true'
       run: |
         sudo apt-get update
+        sudo apt-get install policykit-1
         if [ -z "${{ inputs.target-branch }}" ]; then
           npm run setup
         else
