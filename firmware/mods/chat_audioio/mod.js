@@ -169,7 +169,7 @@ export function onRobotCreated(robot) {
   const chatConfig = {
     ...rawChatConfig,
     voiceID: rawChatConfig.voiceID ?? 'marin',
-    specifier: rawChatConfig.specifier ?? 'openAIRealtime',
+    type: rawChatConfig.type ?? 'openAIRealtime',
     instructions: rawChatConfig.instructions ?? INSTRUCTION_B,
   }
   if (typeof chatConfig?.type !== 'string' || chatConfig.type.length === 0) {
